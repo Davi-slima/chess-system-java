@@ -25,6 +25,14 @@ public class ChessMatch {
 		return mat;	
 	}	
 	
+//	IMPRESSÃO DOS MOVIMENTOS POSSIVEIS:
+	
+	public boolean[][] possibleMoves(ChessPosition sourcePosition){
+		Position position = sourcePosition.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
+	
 //	VALIDAÇÃO DOS PONTOS DE ORIGEM DAS PEÇAS
 	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
