@@ -13,16 +13,17 @@ public abstract class ChessPiece extends Piece {
 		this.color = color;
 	}
 	
-//	VERIFICAÇÃO DA EXISTENCIA DE UMA PEÇA ADVERSARIA EM UMA DADA POSIÇÃO
-	
-	protected boolean isThereOpponentPiece(Position position) {
-		ChessPiece p = (ChessPiece)getBoard().piece(position);
-		return p != null && p.getColor() != color;
-	}
+//	CORES:
 
 	public Color getColor() {
 		return color;
 	}
 	
+//	VERIFICAÇÃO DA EXISTENCIA DE UMA PEÇA ADVERSARIA EM UMA DADA POSIÇÃO:
+	
+	protected boolean isThereOpponentPiece(Position position) {
+		ChessPiece p = (ChessPiece)getBoard().piece(position);
+		return p != null && p.getColor() != color;
+	}
 	
 }
