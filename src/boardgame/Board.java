@@ -1,7 +1,7 @@
 package boardgame;
 
-import chess.pieces.King;
-import chess.pieces.Rook;
+//import chess.pieces.King;
+//import chess.pieces.Rook;
 
 public class Board {
 	
@@ -52,10 +52,9 @@ public class Board {
 //	MÉTODO DE ADICIONAR UMA PEÇA EM UMA DETERMINADA POSIÇÃO
 	
 	public void placePiece(Piece piece, Position position) {
-		if (theresIsAPiece(position)) {
-			throw new BoardException("There's already a piece on position " + position);
+		if (thereIsAPiece(position)) {
+			throw new BoardException("There is already a piece on position " + position);
 		}
-		
 		pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position = position;
 	}
@@ -70,7 +69,7 @@ public class Board {
 		return positionExists(position.getRow(), position.getColumn());
 	}
 	
-	public boolean theresIsAPiece(Position position) {
+	public boolean thereIsAPiece(Position position) {
 		if (!positionExists(position)) {
 			throw new BoardException("Position not on the board");
 		}
