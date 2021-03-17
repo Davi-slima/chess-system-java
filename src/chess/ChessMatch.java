@@ -9,7 +9,7 @@ import chess.pieces.Rook;
 public class ChessMatch {	
 	
 	private Board board;	
-		
+
 	public ChessMatch() {	
 		board = new Board(8, 8);	
 		initialSetup();	
@@ -40,12 +40,19 @@ public class ChessMatch {
 		return capturedPiece;
 	}
 	
+//	VALIDAÇÃO DOS PONTOS DE ORIGEM DAS PEÇAS
+	
 	public void validateSourcePosition(Position position) {
 		if(!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position");
 		}
+		if(!board.piece(position).isThereAnyPossibleMove()) {
+			throw new ChessException("There is no possible moves for the chesen piece");
+		}
 	}
 		
+//	POSIÇÕES DE ORIGEM DAS PEÇAS
+	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {	
 		board.placePiece(piece, new ChessPosition(column, row).toPosition()); // O toPosition está convertendo minha linha e coluna para posição de Matriz
 	}	
