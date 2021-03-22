@@ -61,15 +61,18 @@ public class UI {
 		}
 	}
 	
-//	EXIBIÇÃO DO TURNO E DO JOGADOR ATUAL:
+//	IMPRESSÃO DA PARTIDA NA TELA:
 	
 	public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured) {
-		printBoard(chessMatch.getPieces());  // IMPRESSÃO DA PARTIDA E NÃO DO TABULEIRO
+		printBoard(chessMatch.getPieces());
 		System.out.println();
 		printCapturedPieces(captured);
 		System.out.println();
 		System.out.println("Turn: " + chessMatch.getTurn());
 		System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+		if (chessMatch.getCheck()) {
+			System.out.println("CHECK!");
+		}
 	}
 
 //	 IMPRESSÃO DO TABULEIRO DE TAMANHO 8X8 NA TELA:
@@ -118,7 +121,7 @@ public class UI {
 		System.out.print(" ");
 	}
 	
-//	FILTRAGEM DE PEÇAS CAPTURADAS:
+//	FILTRAGEM DE CAPTURA DAS PEÇAS:
 	
 	private static void printCapturedPieces(List<ChessPiece> captured) {
 		
